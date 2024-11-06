@@ -1,0 +1,27 @@
+.main {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+}
+
+.welcome {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.heart {
+    font-size: 2em;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(2); }
+    to { transform: scale(2.5); }
+}

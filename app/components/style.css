@@ -1,0 +1,30 @@
+.mouse-wrapper {
+    position: fixed;
+    top: 75vh;
+    left: calc(50vw - 12px);
+    text-align: center;
+}
+
+.mouse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 38px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 12px;
+}
+
+.wheel {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    margin-top: 6px;
+    background-color: rgba(0, 0, 0, .3);
+    animation: scroll 1s infinite alternate;
+}
+
+@keyframes scroll {
+    from { transform: translateY(5px); }
+    to { transform: translateY(-10px); }
+}
