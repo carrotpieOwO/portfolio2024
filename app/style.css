@@ -25,6 +25,14 @@
     animation: shake 1.4s ease-in-out infinite alternate;
 }
 
+.fade-in-up {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.fade-out-down {
+    animation: fadeOutDown 0.5s ease-out;
+}
+
 @keyframes pulse {
     from { transform: scale(2); }
     to { transform: scale(2.5); }
@@ -36,5 +44,27 @@
     }
     50% {
       transform: rotate(60deg);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+@keyframes fadeOutDown {
+    from {
+      opacity: 1;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(0);
     }
 }

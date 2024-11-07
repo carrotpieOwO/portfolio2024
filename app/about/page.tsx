@@ -5,6 +5,9 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { aboutInfo } from "../utill/aboutInfo";
+import BubbleSpeach from "../components/BubbleSpeach";
+import Button from "../components/Button";
+import SkillGroup from "../components/SkillGroup";
 
 export default function About() {
   const [character, setCharacter] = useState('default');
@@ -98,50 +101,26 @@ export default function About() {
           />
           <span>&nbsp;최하영입니다 :)</span>
         </div>
-        <Image 
-          src={`/about-${character}.png`} alt="profile" width={300} height={300} 
-          className={`mx-auto transition-opacity duration-300 ease-in-out`}
-        />
-        <div id="skill" className="flex flex-wrap flex-col justify-center items-center bg-black w-fit mx-auto py-2 px-10 rounded-md gap-3">
-          <div className="flex flex-wrap gap-3 text-white">
-            <span>Language</span>
-            <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat&amp;logo=Javascript&amp;logoColor=black" alt="Javascript" />
-            <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&amp;logo=TypeScript&amp;logoColor=white" alt="TypeScript" />
-            <img src="https://img.shields.io/badge/jquery-0769AD?style=flat&amp;logo=jquery&amp;logoColor=white" alt="Chart.js" />
-          </div>  
-          <div className="flex flex-wrap gap-3 text-white">
-            <span>Front-End</span>
-            <img src="https://img.shields.io/badge/Next.js-000000?style=flat&amp;logo=next.js&amp;logoColor=white" alt="Chart.js" />
-            <img src="https://img.shields.io/badge/React-61DAFB?style=flat&amp;logo=React&amp;logoColor=black" alt="React" />
-            <img src="https://img.shields.io/badge/React Query-FF4154?style=flat&amp;logo=ReactQuery&amp;logoColor=white" alt="Chart.js" />
-            <img src="https://img.shields.io/badge/angularJS-DD0031?style=flat&amp;logo=angular&amp;logoColor=white" alt="angularJS" />
-          </div>
-          <div className="flex flex-wrap gap-3 text-white">
-            <span>Library</span>
-            <img src="https://img.shields.io/badge/Chart.js-FF6384?style=flat&amp;logo=Chart.js&amp;logoColor=white" alt="Chart.js" />
-            <img src="https://img.shields.io/badge/recharts-f67377?style=flat&amp;logo=recharts.js&amp;logoColor=white" alt="Chart.js" />
-            <img src="https://img.shields.io/badge/D3-F9A03C?style=flat&amp;logo=d3.js&amp;logoColor=white" alt="Chart.js" />
-          </div>
-          <div className="flex flex-wrap gap-3 text-white">
-            <span>Styling</span>
-            <img src="https://img.shields.io/badge/styled component-DB7093?style=flat&amp;logo=styledcomponents&amp;logoColor=white" alt="Chart.js" />
-            <img src="https://img.shields.io/badge/tailwindcss-06B6D4?style=flat&amp;logo=tailwindcss&amp;logoColor=white" alt="Chart.js" />
-            <img src="https://img.shields.io/badge/emotion-f67377?style=flat&amp;logo=emotion&amp;logoColor=white" alt="Chart.js" />
-            <img src="https://img.shields.io/badge/MUI-007FFF?style=flat&amp;logo=mui&amp;logoColor=white" alt="Chart.js" />
-            <img src="https://img.shields.io/badge/Ant Design-0170FE?style=flat&amp;logo=antdesign&amp;logoColor=white" alt="Chart.js" />
-          </div>
+        <div className="flex justify-center items-center relative h-[264px] max-w-[1000px] mx-auto">
+          <Image 
+            src={`/about-${character}.png`} alt="profile" width={300} height={300} 
+            className={`transition-opacity duration-300 ease-in-out absolute left-1/2 transform -translate-x-1/2`}
+          />
+          {
+            character !== 'default' && <BubbleSpeach message={aboutInfo.find(info => info.key === character)?.message} />
+          }
         </div>
+        <SkillGroup />
         <div className="w-fit mx-auto flex flex-wrap gap-3 mt-3" onMouseLeave={() => setCharacter('default')}>
           {
             aboutInfo.map((info) => (
-              <span 
+              <Button 
                 key={info.key} 
-                className="bg-pink-500 text-white font-bold rounded-full px-4 py-2 cursor-pointer" 
-                onMouseEnter={() => setCharacter(info.key)}
+                onHover={() => setCharacter(info.key)}
                 onClick={() => window.open(info.url, '_blank')}
               >
                 #{info.key}
-              </span>
+              </Button>
             ))
           }
         </div>
