@@ -21,7 +21,20 @@
     animation: pulse 1s infinite alternate;
 }
 
+.shake {
+    animation: shake 1.4s ease-in-out infinite alternate;
+}
+
 @keyframes pulse {
     from { transform: scale(2); }
     to { transform: scale(2.5); }
+}
+
+@keyframes shake {
+    0%, 100% {
+      transform: rotate(-10deg);
+    }
+    50% {
+      transform: rotate(60deg);
+    }
 }
