@@ -20,3 +20,10 @@ export const aboutInfo = [
         url: 'mailto:ha0@kakao.com'
     }
 ]
+
+export const stack = {
+    language: ['Javascript', 'Typescript', 'html5', 'css3', 'jQuery'],
+    fontEnd: ['Next.js', 'React', 'React Query', 'angular'],
+    Library: ['Chart.js', 'recharts.js', 'D3.js' , 'AGgrid'],
+    Styling: ['styled components', 'tailwindCSS', 'emotion', 'MUI', 'Ant Design']
+}

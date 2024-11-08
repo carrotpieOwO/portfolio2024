@@ -4,23 +4,47 @@ export const getImageUrl = (skill) => {
     const skillsColor = {
         javascript: 'F7DF1E',
         typescript: '3178C6',
-        jquery: '0965a7',
-        angularjs: 'DD0031',
+        jquery: '0769AD',
+        nextjs: '000000',
+        angular: 'DD0031',
         react:'61DAFB',
-        redux: '7c41be',
-        antdesign: 'f7495b',
-        chartjs: 'f67377',
-        d3js: 'f78949',
+        reactquery: 'FF4154',
+        redux: '764ABC',
+        antdesign: '0170FE',
+        chartjs: 'FF6384',
+        d3js: 'F9A03C',
         spring: '6DB33F',
         mysql: '42759c',
         firebase: 'f7c52b',
         gatsby: '7952B3',
-        graphql: 'E10098'
+        graphql: 'E10098',
+        styledcomponents: 'DB7093',
+        tailwindcss: '06B6D4',
+        mui: '007FFF',
+        devexpress: 'FF7200',
+        html5: 'E34F26',
+        css3: '1572B6'
     }
     
-    const skillId = skill.toLowerCase().replace('.', '');
+    const skillId = skill.toLowerCase().replace(' ', '').replace('.', '');
+    const convertedSkillName = convertSkillName(skill);
     const skillColor = skillsColor[`${skillId}`] ? skillsColor[`${skillId}`] : 'efefef'
-    const logoColor = skill === 'React' || skill === 'Javascript' || skill === 'firebase' ? 'black' : 'white'
+    const blackLabel = ['react', 'javascript', 'firebase']
+    const logoColor = blackLabel.includes(skillId) ? 'black' : 'white'
 
-    return `https://img.shields.io/badge/${skill}-${skillColor}?style=flat-square&logo=${skill}&logoColor=${logoColor}`
+    return `https://img.shields.io/badge/${convertedSkillName}-${skillColor}?style=flat&logo=${skill}&logoColor=${logoColor}`
+}
+
+
+const convertSkillName = (skill) => {
+    switch (skill) {
+        case 'html5':
+            return 'HTML'
+        case 'css3':
+            return 'CSS'          
+        case 'angular':
+            return 'Angular.js'
+        default:
+            return skill
+    }
 }
