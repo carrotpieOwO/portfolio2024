@@ -1,7 +1,10 @@
 .swiper {
-    height: 620px;
+    height: 100%;
 }
-
+.swiper-wrapper {
+    align-items: center;
+    height: 100%;
+}
 .mySwiper .swiper-slide {
     height: 600px;
     max-width: 400px;
@@ -13,4 +16,35 @@
     padding: 10px;
     font-size: 14px;
     line-height: 1.5;
+}
+
+.slider-btn {
+    width: 100%;
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius:12px;
+    background-size: 0 0;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-image: radial-gradient(circle at center, rgb(255, 155, 79) 50%, transparent 50%);
+    transition: background-size 0.3s ease-in-out;
+    color: #000;
+    opacity: 50%;
+    cursor: default;
+}
+
+.slider-btn.target {
+    color: #fff;
+    opacity: 100%;
+    cursor: pointer;
+}
+.slider-btn.target:hover {
+    background-size: 200% 200%;
+}
+.swiper-slide-active {
+    scale: 1.1;
 }

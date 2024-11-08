@@ -69,11 +69,8 @@ export default function Projects() {
                                 item.link && item.link.map((link) => (
                                     <button
                                         key={`${item.projectId}-${link.type}`}
-                                        className={`w-full p-2 flex gap-2 items-center justify-center cursor-pointer border-none rounded-xl transition-all duration-500 ${i === targetIndex ? 'text-white' : 'text-black'} hover:bg-[#ff9b4f]`}
-                                        style={{
-                                            opacity: i === targetIndex ? 1 : 0.5,
-                                            backgroundColor: i === targetIndex ? works[targetIndex].color : 'rgba(0, 0, 0, .2)',
-                                        }}
+                                        className={`slider-btn ${i === targetIndex && 'target'}`}
+                                        style={{backgroundColor: i === targetIndex ? works[targetIndex].color : 'rgba(0, 0, 0, .2)',}}
                                         //onClick={() => onClick(link, item)}
                                     >
                                         {link.type === 'Site' ? (
