@@ -1,0 +1,16 @@
+.swiper {
+    height: 620px;
+}
+
+.mySwiper .swiper-slide {
+    height: 600px;
+    max-width: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px;
+    text-align: left;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+}

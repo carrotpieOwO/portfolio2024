@@ -71,7 +71,7 @@ export default function About() {
         FRONT-END DEVELOPER
       </div>
       <div className="about-container w-full h-full absolute top-10 left-1/2 transform -translate-x-1/2 bg-white py-10">
-        <div ref={typingRef}>
+        <div ref={typingRef} className="h-[144px]">
           <div className="flex justify-center items-center">
               안녕하세요!&nbsp;
               <div className="shake">
@@ -80,7 +80,7 @@ export default function About() {
           </div>
           <span>저는&nbsp;</span>
           <TypeAnimation
-              style={{color:'#EF629F'}}
+              className="text-[#EF629F]"
               sequence={[
                   '노력하는 개발자',
                   1500,

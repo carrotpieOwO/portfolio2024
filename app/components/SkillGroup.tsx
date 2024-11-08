@@ -4,7 +4,7 @@ export default function SkillGroup() {
           <Skill title="Language">
             <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat&amp;logo=Javascript&amp;logoColor=black" alt="Javascript" />
             <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&amp;logo=TypeScript&amp;logoColor=white" alt="TypeScript" />
-            <img src="https://img.shields.io/badge/jquery-0769AD?style=flat&amp;logo=jquery&amp;logoColor=white" alt="Chart.js" />
+            <img src="https://img.shields.io/badge/jquery-0769AD?style=flat&amp;logo=jquery&amp;logoColor=white" alt="jquery" />
           </Skill>
           <Skill title="Front-End">
             <img src="https://img.shields.io/badge/Next.js-000000?style=flat&amp;logo=next.js&amp;logoColor=white" alt="Chart.js" />

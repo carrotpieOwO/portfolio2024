@@ -9,12 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
     "gsap": "^3.12.5",
     "next": "14.2.14",
     "react": "^18",
     "react-dom": "^18",
     "react-type-animation": "^3.2.0",
-    "styled-component": "^2.8.0"
+    "styled-component": "^2.8.0",
+    "swiper": "^11.1.14"
   },
   "devDependencies": {
     "@types/node": "^20",

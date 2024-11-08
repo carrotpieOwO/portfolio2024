@@ -2,6 +2,7 @@ import "./style.css";
 import Image from "next/image";
 import About from "./about/page";
 import Mouse from "./components/Mouse";
+import Projects from "./project/page";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         </div>
         <Mouse />
         <About />
+        <Projects />
         <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
