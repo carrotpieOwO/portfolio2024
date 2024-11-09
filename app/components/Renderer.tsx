@@ -52,6 +52,7 @@ export default function Renderer ({ recordMap, rootPageId }: RendererProps) {
             mapPageUrl={(pageId) => `${pageId}`}
             pageHeader={<Link href={'/project'}>뒤로가기</Link>}
             disableHeader
+            // header={<>header</>}
             // showCollectionViewDropdown
             // pageCover={<>cover</>}
             // pageAside={<>aside</>}

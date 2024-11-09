@@ -12,14 +12,14 @@ import Internet from '@/public/images/icons/internet.svg'
 import Code from '@/public/images/icons/code.svg'
 import Detail from '@/public/images/icons/detail.svg'
 import { useRouter } from "next/navigation";
+import { useProject } from "@/app/store/useProject";
 
 export default function Projects() {
-    // todo: 프로젝트 디테일에서 타겟 인덱스 넘겨주는거 반영하기
-    const [ targetIndex, setTargetIndex ] = useState(0);
+    const { index, setIndex } = useProject()
     const router = useRouter();
 
     const handleSlide = ({ activeIndex } : { activeIndex: number}) => {
-        setTargetIndex(activeIndex)
+        setIndex(activeIndex)
     }
 
     // project card의 버튼 클릭
@@ -37,7 +37,7 @@ export default function Projects() {
     return (
         <section 
             className={`relative w-full h-[100vh] transition-colors duration-500 ease-in-out flex items-center`}
-            style={{ backgroundColor: works[targetIndex].color, transition: 'background-color 0.5s ease' }}
+            style={{ backgroundColor: works[index].color, transition: 'background-color 0.5s ease' }}
         >
             <Swiper
                 slidesPerView={'auto'}
@@ -49,6 +49,7 @@ export default function Projects() {
                 modules={[Pagination]}
                 className="mySwiper"
                 onSlideChange={handleSlide}
+                initialSlide={index}
             >
                 {
                     works.map((item, i) => (
@@ -70,16 +71,16 @@ export default function Projects() {
                                 item.link && item.link.map((link) => (
                                     <button
                                         key={`${item.projectId}-${link.type}`}
-                                        className={`slider-btn ${i === targetIndex && 'target'}`}
-                                        style={{backgroundColor: i === targetIndex ? works[targetIndex].color : 'rgba(0, 0, 0, .2)',}}
+                                        className={`slider-btn ${i === index && 'target'}`}
+                                        style={{backgroundColor: i === index ? works[index].color : 'rgba(0, 0, 0, .2)',}}
                                         onClick={() => handleClick(link, item)}
                                     >
                                         {link.type === 'Site' ? (
-                                            <><Internet className={`w-5 h-5 ${i === targetIndex ? 'fill-white' : 'fill-black'}`} /> Live View</>
+                                            <><Internet className={`w-5 h-5 ${i === index ? 'fill-white' : 'fill-black'}`} /> Live View</>
                                         ) : link.type === 'Git' ? (
-                                            <Code className={`w-5 h-5 ${i === targetIndex ? 'fill-white' : 'fill-black'}`}  />
+                                            <Code className={`w-5 h-5 ${i === index ? 'fill-white' : 'fill-black'}`}  />
                                         ) : (
-                                            <><Detail className={`w-5 h-5 ${i === targetIndex ? 'fill-white' : 'fill-black'}`} />Detail</>
+                                            <><Detail className={`w-5 h-5 ${i === index ? 'fill-white' : 'fill-black'}`} />Detail</>
                                         )}
                                     </button>
                                 ))
