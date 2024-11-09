@@ -11,26 +11,27 @@ import { getImageUrl } from "../utill/skillIcons";
 import Internet from '@/public/images/icons/internet.svg'
 import Code from '@/public/images/icons/code.svg'
 import Detail from '@/public/images/icons/detail.svg'
+import { useRouter } from "next/navigation";
 
 export default function Projects() {
+    // todo: 프로젝트 디테일에서 타겟 인덱스 넘겨주는거 반영하기
     const [ targetIndex, setTargetIndex ] = useState(0);
+    const router = useRouter();
 
     const handleSlide = ({ activeIndex } : { activeIndex: number}) => {
         setTargetIndex(activeIndex)
     }
 
     // project card의 버튼 클릭
-    // const onClick = (link: any, item: any) => {
-    //     if (link.type !== 'Detail') {
-    //         // code, live view의 경우 해당 페이지로 이동
-    //         window.open(link.url)
-    //     } 
-    //     // else {
-    //     //     // detail일 경우 modal에 project데이터 셋팅
-    //     //     props.setModal(true);
-    //     //     props.setContent(item)
-    //     // }
-    // }
+    const handleClick = (link: any, item: any) => {
+        if (link.type !== 'Detail') {
+            // code, live view의 경우 해당 페이지로 이동
+            window.open(link.url)
+        } 
+        else {
+            router.push(`/project/${link.url}`)
+        }
+    }
     
     
     return (
@@ -71,7 +72,7 @@ export default function Projects() {
                                         key={`${item.projectId}-${link.type}`}
                                         className={`slider-btn ${i === targetIndex && 'target'}`}
                                         style={{backgroundColor: i === targetIndex ? works[targetIndex].color : 'rgba(0, 0, 0, .2)',}}
-                                        //onClick={() => onClick(link, item)}
+                                        onClick={() => handleClick(link, item)}
                                     >
                                         {link.type === 'Site' ? (
                                             <><Internet className={`w-5 h-5 ${i === targetIndex ? 'fill-white' : 'fill-black'}`} /> Live View</>
