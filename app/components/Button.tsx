@@ -1,4 +1,4 @@
-export default function Button({ children, onHover, onClick }: { children: React.ReactNode, onHover: () => void, onClick: () => void }) {
+export default function Button({ children, onHover, onClick }: { children: React.ReactNode, onHover?: () => void, onClick: () => void }) {
     return (
         <button 
             className="group flex h-10 items-center gap-2 rounded-full bg-neutral-200 pl-3 pr-4 transition-all duration-300 ease-in-out hover:bg-black hover:pl-2 hover:text-white active:bg-neutral-700"

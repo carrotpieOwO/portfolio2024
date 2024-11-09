@@ -7,10 +7,9 @@ import 'katex/dist/katex.min.css';
 import dynamic from 'next/dynamic'
 import Image from 'next/image';
 import Link from 'next/link';
-import { formatDate, getBlockTitle, getPageProperty } from 'notion-utils'
-
 import { ExtendedRecordMap } from 'notion-types';
-import { useMemo } from 'react';
+import Button from './Button';
+import { useRouter } from 'next/navigation';
 
 const Collection = dynamic(() =>
   import('react-notion-x/build/third-party/collection').then(
@@ -35,10 +34,22 @@ const components = {
   nextLink: Link,
   Collection,
   Equation,
-  Code
+  Code,
+}
+
+const CustomFooter = ({ handleClick }: {handleClick: () => void}) => {
+  return (
+    <div className='fixed bottom-5 right-5'>
+      <Button onClick={(handleClick)}>
+          뒤로가기
+      </Button>
+    </div>
+  )
 }
 
 export default function Renderer ({ recordMap, rootPageId }: RendererProps) {
+    const router = useRouter();
+
     return (
         <div className="notion__container">
           <NotionRenderer
@@ -50,8 +61,8 @@ export default function Renderer ({ recordMap, rootPageId }: RendererProps) {
             components={components}
             rootDomain={"project/"}
             mapPageUrl={(pageId) => `${pageId}`}
-            pageHeader={<Link href={'/project'}>뒤로가기</Link>}
             disableHeader
+            footer={<CustomFooter handleClick={() => router.push('/#project')} />}
             // header={<>header</>}
             // showCollectionViewDropdown
             // pageCover={<>cover</>}
