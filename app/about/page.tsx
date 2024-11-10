@@ -20,7 +20,7 @@ export default function About() {
     const typing = typingRef.current;
 
     gsap.fromTo(title,
-      { y: 100 },
+      { y: 50 }, // todo: 화면 사이지 적용
       {
         y: 0,
         scrollTrigger: {
@@ -66,11 +66,11 @@ export default function About() {
   }, []);
 
   return (
-    <section className="relative h-[100vh] w-full">
-      <div ref={titleRef} className="w-full absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl xl:text-7xl font-bold">
+    <section className="relative h-[100vh] w-full flex items-center flex-column">
+      <div ref={titleRef} className="absolute top-[20%] w-full text-7xl font-bold">
         FRONT-END DEVELOPER
       </div>
-      <div className="about-container w-full h-full absolute top-10 left-1/2 transform -translate-x-1/2 bg-white py-10">
+      <div className="about-container w-full bg-white py-10 bg-white z-10">
         <div ref={typingRef} className="h-[144px]">
           <div className="flex justify-center items-center">
               안녕하세요!&nbsp;
