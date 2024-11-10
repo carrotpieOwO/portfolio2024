@@ -1,7 +1,6 @@
 .mouse-wrapper {
-    position: fixed;
-    top: 75vh;
-    left: calc(50vw - 12px);
+    position: absolute;
+    top: 15%;
     text-align: center;
 }
 

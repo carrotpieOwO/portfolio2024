@@ -33,6 +33,10 @@
     animation: fadeOutDown 0.5s ease-out;
 }
 
+.fade-in-blur {
+  animation: fadeInAndUnblur 1.5s ease-in-out forwards;
+}
+
 @keyframes pulse {
     from { transform: scale(2); }
     to { transform: scale(2.5); }
@@ -67,4 +71,15 @@
       opacity: 0;
       transform: translateY(0);
     }
+}
+
+@keyframes fadeInAndUnblur {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
 }

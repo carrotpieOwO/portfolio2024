@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@splinetool/react-spline": "^4.0.0",
+    "@splinetool/runtime": "^1.9.37",
     "@svgr/webpack": "^8.1.0",
     "gsap": "^3.12.5",
     "next": "14.2.14",
@@ -17,6 +19,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-notion-x": "^7.2.1",
+    "react-spline": "^1.2.1",
     "react-type-animation": "^3.2.0",
     "styled-component": "^2.8.0",
     "swiper": "^11.1.14",
