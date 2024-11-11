@@ -3,11 +3,10 @@ import { getImageUrl } from "../utill/skillIcons"
 
 export default function SkillGroup() {
     return (
-        <div id="skill" className="flex flex-wrap flex-col justify-center items-center bg-black w-fit mx-auto py-2 px-10 rounded-md gap-3">
+        <div id="skill" className="flex flex-wrap flex-col justify-center items-center bg-black w-fit mx-auto py-2 px-10 rounded-md gap-3 z-10 relative">
           {
             Object.entries(stack).map(([category, items]) => (
               <Skill key={category} title={category}>
-                <h1>{category}</h1>
                 {items.map((item) => (
                   <img key={`${category}-${item}`} src={getImageUrl(item)} alt={item} />
                 ))}

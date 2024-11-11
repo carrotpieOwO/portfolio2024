@@ -6,7 +6,7 @@ import Room from "./components/Room";
 
 export default function Home() {
   return (
-      <main className="main flex flex-col gap-8 row-start-2 items-center sm:items-start w-full overflow-x-hidden">
+      <main className="main flex flex-col row-start-2 items-center sm:items-start w-full overflow-x-hidden">
         <div className="welcome">
           <div className="relative top-[25%] ">
             <div className="heart">❤️</div>
