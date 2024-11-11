@@ -2,7 +2,6 @@ import "./style.css";
 import About from "./about/page";
 import Mouse from "./components/Mouse";
 import Projects from "./project/page";
-import dynamic from "next/dynamic";
 import Room from "./components/Room";
 
 export default function Home() {
@@ -16,7 +15,7 @@ export default function Home() {
             </h1>
             <p className="fade-in-up text-nowrap">제 포트폴리오 페이지에 오신 것을 환영합니다 :)</p>
           </div>
-            <Room />
+          <Room />
         </div>
         <Mouse />
         <About />

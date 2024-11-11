@@ -20,9 +20,9 @@ export default function About() {
     const typing = typingRef.current;
 
     gsap.fromTo(title,
-      { y: 50 }, // todo: 화면 사이지 적용
+      { y: window?.innerHeight > 1200 ? 10 : window?.innerHeight > 930 ? 5 : -100 }, // todo: 화면 사이지 적용
       {
-        y: 0,
+        y: window?.innerHeight > 1200 ? -50 : window?.innerHeight > 930 ? -150 : window?.innerHeight * 0.5,
         scrollTrigger: {
           trigger: title,
           start: "top bottom", // 요소의 top이 viewport의 bottom에 도달했을 때 시작
@@ -70,59 +70,61 @@ export default function About() {
       <div ref={titleRef} className="absolute top-[20%] w-full text-7xl font-bold">
         FRONT-END DEVELOPER
       </div>
-      <div className="about-container w-full bg-white py-10 bg-white z-10">
-        <div ref={typingRef} className="h-[144px]">
-          <div className="flex justify-center items-center">
-              안녕하세요!&nbsp;
-              <div className="shake">
-                👋🏻
-              </div> 
+      <div className={`w-full mx-auto bg-white py-10 z-${window?.innerHeight > 930 ? 10 : 0}`}>
+        <div className={`w-fit mx-auto bg-white py-10 border border-neutral-700 shadow-md rounded-[20px] p-2.5`}>
+          <div ref={typingRef} className="h-[144px]">
+            <div className="flex justify-center items-center">
+                안녕하세요!&nbsp;
+                <div className="shake">
+                  👋🏻
+                </div> 
+            </div>
+            <span>저는&nbsp;</span>
+            <TypeAnimation
+                className="text-[#EF629F]"
+                sequence={[
+                    '노력하는 개발자',
+                    1500,
+                    'Front End 개발자',
+                    1500,
+                    '사용자경험을 중요시하는',
+                    1500,
+                    '고민하는 개발자',
+                    1500,
+                    '고양이를 키우는',
+                    1500,
+                    '키보드를 좋아하는',
+                    1500,
+                    'INTP',
+                    1500,
+                ]}
+                repeat={Infinity}
+            />
+            <span>&nbsp;최하영입니다 :)</span>
           </div>
-          <span>저는&nbsp;</span>
-          <TypeAnimation
-              className="text-[#EF629F]"
-              sequence={[
-                  '노력하는 개발자',
-                  1500,
-                  'Front End 개발자',
-                  1500,
-                  '사용자경험을 중요시하는',
-                  1500,
-                  '고민하는 개발자',
-                  1500,
-                  '고양이를 키우는',
-                  1500,
-                  '키보드를 좋아하는',
-                  1500,
-                  'INTP',
-                  1500,
-              ]}
-              repeat={Infinity}
-          />
-          <span>&nbsp;최하영입니다 :)</span>
-        </div>
-        <div className="flex justify-center items-center relative h-[264px] max-w-[1000px] mx-auto">
-          <Image 
-            src={`/about-${character}.png`} alt="profile" width={300} height={300} 
-            className={`transition-opacity duration-300 ease-in-out absolute left-1/2 transform -translate-x-1/2`}
-          />
-          {
-            character !== 'default' && <BubbleSpeach message={aboutInfo.find(info => info.key === character)?.message} />
-          }
-        </div>
-        <SkillGroup />
-        <div className="w-fit mx-auto flex flex-wrap gap-3 mt-3" onMouseLeave={() => setCharacter('default')}>
-          {
-            aboutInfo.map((info) => (
-              <Button 
-                key={info.key} 
-                onHover={() => setCharacter(info.key)}
-                onClick={() => window.open(info.url, '_blank')}
-              >
-                #{info.key}
-              </Button>
-            ))
-          }
+          <div className="flex justify-center items-center relative h-[264px] max-w-[1000px] mx-auto">
+            <Image 
+              src={`/about-${character}.png`} alt="profile" width={300} height={300} 
+              className={`transition-opacity duration-300 ease-in-out absolute left-1/2 transform -translate-x-1/2`}
+            />
+            {
+              character !== 'default' && <BubbleSpeach message={aboutInfo.find(info => info.key === character)?.message} />
+            }
+          </div>
+          <SkillGroup />
+          <div className="w-fit mx-auto flex flex-wrap gap-3 mt-3" onMouseLeave={() => setCharacter('default')}>
+            {
+              aboutInfo.map((info) => (
+                <Button 
+                  key={info.key} 
+                  onHover={() => setCharacter(info.key)}
+                  onClick={() => window.open(info.url, '_blank')}
+                >
+                  #{info.key}
+                </Button>
+              ))
+            }
+          </div>
         </div>
       </div>
     </section>

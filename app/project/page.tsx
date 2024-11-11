@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from "react";
 import works from "@/app/utill/works";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
@@ -15,19 +14,18 @@ import { useRouter } from "next/navigation";
 import { useProject } from "@/app/store/useProject";
 
 export default function Projects() {
-    const { index, setIndex } = useProject()
+    const { projectColor, index, setIndex } = useProject()
     const router = useRouter();
 
     const handleSlide = ({ activeIndex } : { activeIndex: number}) => {
         setIndex(activeIndex)
     }
-
     // project card의 버튼 클릭
-    const handleClick = (link: any, item: any) => {
+    const handleClick = (link: { type: string; url: string }) => {
         if (link.type !== 'Detail') {
             // code, live view의 경우 해당 페이지로 이동
             window.open(link.url)
-        } 
+        }
         else {
             router.push(`/project/${link.url}`)
         }
@@ -38,7 +36,7 @@ export default function Projects() {
         <section 
             id="project"
             className={`relative w-full h-[100vh] transition-colors duration-500 ease-in-out flex items-center`}
-            style={{ backgroundColor: works[index].color, transition: 'background-color 0.5s ease' }}
+            style={{ backgroundColor: projectColor, transition: 'background-color 0.5s ease' }}
         >
             <Swiper
                 slidesPerView={'auto'}
