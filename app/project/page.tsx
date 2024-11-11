@@ -43,7 +43,7 @@ export default function Projects() {
         onEnter: () => gsap.to('body', { background: projectColor, duration: 2 }),
         onLeave: () => gsap.to('body', { background: 'linear-gradient(to bottom, #fec6de 5%,rgba(255, 255, 255, 1) 25%)', duration: 2 }),
         onEnterBack: () => gsap.to('body', { background: projectColor, duration: 1 }),
-        onLeaveBack: () => gsap.to('body', { background: '#1e232b', duration: 1 }),
+        onLeaveBack: () => gsap.to('body', { background: 'linear-gradient(to bottom, #fec6de 5%,rgba(255, 255, 255, 1) 25%)', duration: 1 }),
     });
     
     return (
@@ -71,7 +71,7 @@ export default function Projects() {
                             <img className="object-fill h-[55%] w-full rounded-[13px]" src={item.mainImg} alt={item.projectNm} />
                             <div className="p-2 px-4">
                                 <h3 className="font-bold mt-3 text-lg">{item.projectNm} ({item.period})</h3>
-                                <div className="flex gap-[5px] py-4">
+                                <div className="flex flex-wrap gap-[5px] py-4">
                                 {
                                     item.skills.map((skill: string)    => (
                                         <img key={`${item.projectId}-${skill}`} src={getImageUrl(skill)} alt={skill} />
