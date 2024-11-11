@@ -8,11 +8,11 @@
 .mySwiper .swiper-slide {
     height: 600px;
     max-width: 400px;
-    border-radius: 20px;
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px;
     text-align: left;
     background-color: rgb(255, 255, 255);
+    border-radius: 20px;
     padding: 10px;
     font-size: 14px;
     line-height: 1.5;
@@ -45,6 +45,12 @@
 .slider-btn.target:hover {
     background-size: 200% 200%;
 }
-.swiper-slide-active {
-    scale: 1.1;
+
+
+@media (min-width: 640px) {
+    .swiper-slide-active {
+        scale: 1.1;
+    }
 }
+
+

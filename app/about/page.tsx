@@ -106,13 +106,13 @@ export default function About() {
   }, []);
 
   return (
-    <section className="relative h-[100vh] w-full flex items-center flex-column" ref={nightRef}>
+    <section className="relative min-h-[100vh] w-full flex items-center flex-column" ref={nightRef}>
       <div ref={titleRef} className="absolute top-1/2 w-full text-7xl font-bold text-transparent" style={{ WebkitTextStroke: '1px #fff' }}>
         <span ref={prontendRef} className="front-end block">FRONT-END</span>
         <span ref={developerRef} className="developer block">DEVELOPER</span>
       </div>
       <div className={`w-full mx-auto py-10`}>
-        <div className={`w-fit mx-auto bg-[#353F4C] p-10 border border-neutral-700 shadow-md rounded-[20px]`}>
+        <div className={`w-fit sm:w-[750px] mx-auto sm:bg-[#353F4C] p-5 sm:p-10 sm:border border-neutral-700 sm:shadow-md sm:rounded-[20px]`}>
           <div ref={typingRef} className="h-[144px]">
             <div className="flex justify-center items-center text-white text-2xl sm:text-4xl">
                 안녕하세요!&nbsp;
@@ -153,7 +153,7 @@ export default function About() {
             }
           </div>
           <SkillGroup />
-          <div className="w-fit mx-auto flex flex-wrap gap-3 mt-3" onMouseLeave={() => setCharacter('default')}>
+          <div className="w-fit mx-auto flex justify-center flex-wrap gap-3 mt-3" onMouseLeave={() => setCharacter('default')}>
             {
               aboutInfo.map((info) => (
                 <Button 

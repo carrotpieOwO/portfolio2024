@@ -11,7 +11,7 @@ export default function Button({ children, onHover, onClick }: { children: React
                     <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
             </span>
-            <span>{children}</span>
+            <span className="font-bold">{children}</span>
         </button>
     )
 }

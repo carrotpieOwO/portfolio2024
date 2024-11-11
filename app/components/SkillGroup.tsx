@@ -3,7 +3,7 @@ import { getImageUrl } from "../utill/skillIcons"
 
 export default function SkillGroup() {
     return (
-        <div id="skill" className="flex flex-wrap flex-col justify-center items-center bg-black w-fit mx-auto py-2 px-10 rounded-md gap-3 z-10 relative">
+        <div id="skill" className="flex flex-wrap flex-col justify-center items-center bg-black w-fit mx-auto py-5 px-5 rounded-[20px] gap-3 z-10 relative">
           {
             Object.entries(stack).map(([category, items]) => (
               <Skill key={category} title={category}>
@@ -20,8 +20,10 @@ export default function SkillGroup() {
 const Skill = ({ title, children }: { title: string, children: React.ReactNode }) => {
     return (
         <div className="flex flex-wrap gap-3 text-white items-center">
-            <span>{title}</span>
-            {children}
+            <span className="font-bold">{title}</span>
+            <div className="flex flex-wrap gap-2">
+              {children}
+            </div>
         </div>
     )
 }
