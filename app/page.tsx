@@ -4,6 +4,7 @@ import Mouse from "./components/Mouse";
 import Projects from "./project/page";
 import Room from "./components/Room";
 import Contact from "./contact/page";
+import { FaGithub } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -23,7 +24,16 @@ export default function Home() {
         <Projects />
         <Contact />
         <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-          todo: footer        
+          <p className="text-9xl font-bold text-transparent" style={{ WebkitTextStroke: '1px #fff' }}>Thank you</p>
+          <div className="w-full flex justify-between items-center px-3 py-2 sm:px-0 sm:py-10">
+            <a href="https://github.com/carrotpieOwO" hrefLang="github" target="_blank" className="text-xl sm:text-3xl">
+              <FaGithub />
+            </a>
+            <div className="font-bold">
+              <span className="text-lg sm:text-2xl text-gray-500 mr-2">Designed & Developed By</span>
+              <span className="text-xl sm:text-3xl text-pink-500">ha0</span>
+            </div>
+          </div>
         </footer>
       </main>
   );
