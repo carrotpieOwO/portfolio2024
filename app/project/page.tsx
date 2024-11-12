@@ -59,7 +59,6 @@ export default function Projects() {
                 scrollTriggerRef.current.kill()
                 scrollTriggerRef.current = null;
             }
-            
         };
 
     }, [projectColor])
@@ -69,9 +68,8 @@ export default function Projects() {
             id="projects"
             ref={projectRef}
             className={`relative w-full h-[100vh] transition-colors duration-500 ease-in-out flex-column items-center px-5 sm:px-0`}
-            //style={{ backgroundColor: projectColor, transition: 'background-color 0.5s ease' }}
         >
-            <p className="absolute top-0 sm:top-12 left-1 sm:left-10 text-9xl font-bold text-transparent" style={{ WebkitTextStroke: '1px #fff' }}>Projects.</p>
+            <p className="absolute top-0 sm:top-12 left-1 sm:left-10  xl:left-1/3 text-9xl font-bold text-transparent" style={{ WebkitTextStroke: '1px #fff' }}>Projects.</p>
             <Swiper
                 slidesPerView={'auto'}
                 spaceBetween={30}

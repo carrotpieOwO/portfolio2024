@@ -25,8 +25,8 @@ export default function Contact() {
 
     return (
         <section id="contact" className="relative h-[100vh] w-full transition-colors duration-500 ease-in-out" ref={contactRef}>
-            <p className="absolute text-9xl font-bold text-transparent my-10 sm:my-32 left-1 sm:left-10" style={{ WebkitTextStroke: '1px #fff' }}>Contact.</p>
-            <div className='relative top-[20%] shadow-md shadow-black/20 rounded-[20px] bg-white w-fit min-w-[350px] sm:w-[750px] mx-auto'>
+            <p className="text-9xl font-bold text-transparent my-10 sm:my-32" style={{ WebkitTextStroke: '1px #fff' }}>Contact.</p>
+            <div className='shadow-md shadow-black/20 rounded-[20px] bg-white w-fit min-w-[350px] sm:w-[750px] mx-auto'>
                 <div className='flex items-center p-3 gap-2'>
                     <span className='w-4 h-4 bg-[#ff5f57] border border-[#e1443b] rounded-[50%]' />
                     <span className='w-4 h-4 bg-[#f6b63e] border border-[#d89a32] rounded-[50%]' />
