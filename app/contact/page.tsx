@@ -1,7 +1,6 @@
 'use client'
 import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
-import _ScrollTrigger from 'gsap/ScrollTrigger';
 import Toast from '../components/Toast';
 
 export interface ToastStatus {

@@ -89,6 +89,7 @@ export default function About() {
     return () => {
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
   return (

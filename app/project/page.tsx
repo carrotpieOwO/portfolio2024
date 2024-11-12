@@ -20,7 +20,7 @@ export default function Projects() {
     const { projectColor, index, setIndex } = useProject()
     const router = useRouter();
     const projectRef = useRef<HTMLDivElement>(null);
-    const scrollTriggerRef = useRef<ScrollTrigger>(null);
+    let scrollTriggerRef:ScrollTrigger | null = null;
 
     const handleSlide = ({ activeIndex } : { activeIndex: number}) => {
         setIndex(activeIndex)
@@ -39,8 +39,14 @@ export default function Projects() {
     useEffect(() => {
         const project = projectRef.current;
 
-        if(!scrollTriggerRef.current) {
-            scrollTriggerRef.current = _ScrollTrigger.create({
+
+    // 기존 트리거가 있으면 제거
+    if (scrollTriggerRef) {
+        scrollTriggerRef.kill();
+    }
+
+        if(!scrollTriggerRef) {
+            scrollTriggerRef = _ScrollTrigger.create({
                 trigger: project,
                 start: 'top center',
                 end: 'bottom center',
@@ -50,14 +56,14 @@ export default function Projects() {
                 onLeaveBack: () => gsap.to('body', { background: '#1e232b', duration: 1 }),
             });
         } else {
-            scrollTriggerRef.current.vars.onEnter = () => gsap.to('body', { background: projectColor, duration: 2 })
-            scrollTriggerRef.current.vars.onEnter = () => gsap.to('body', { background: projectColor, duration: 2 })
+            scrollTriggerRef.vars.onEnter = () => gsap.to('body', { background: projectColor, duration: 2 })
+            scrollTriggerRef.vars.onEnter = () => gsap.to('body', { background: projectColor, duration: 2 })
         }
         
         return () => {
-            if(!!scrollTriggerRef.current) {
-                scrollTriggerRef.current.kill()
-                scrollTriggerRef.current = null;
+            if(!!scrollTriggerRef) {
+                scrollTriggerRef.kill()
+                scrollTriggerRef = null;
             }
         };
 
@@ -104,7 +110,7 @@ export default function Projects() {
                                         key={`${item.projectId}-${link.type}`}
                                         className={`slider-btn ${i === index && 'target'}`}
                                         style={{backgroundColor: i === index ? works[index].color : 'rgba(0, 0, 0, .2)',}}
-                                        onClick={() => handleClick(link, item)}
+                                        onClick={() => handleClick(link)}
                                     >
                                         {link.type === 'Site' ? (
                                             <><Internet className={`w-5 h-5 ${i === index ? 'fill-white' : 'fill-black'}`} /> Live View</>

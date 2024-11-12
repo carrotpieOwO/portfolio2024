@@ -38,7 +38,7 @@ export default function Nav () {
                 <div className={`sm:block sm:w-auto`} id="navbar-default">
                     <ul className="font-medium flex p-0 flex-row sm:space-x-8 ">
                         {
-                            sections.map(section => <li>
+                            sections.map(section => <li key={section} >
                                 <a href={`#${section}`} className={`block py-2 px-3 ${ section === activeSection ? "text-pink-700" : "text-gray-600"} p-0`} aria-current="page">
                                     {capitalizeFirstLetter(section)}
                                 </a>

@@ -1,8 +1,7 @@
 'use client'
-import dynamic from 'next/dynamic';
-import { useState } from 'react';
 
-const Spline = dynamic(() => import('@splinetool/react-spline'));
+import { useState } from 'react';
+import Spline from '@splinetool/react-spline';
 
 export default function Room () {
     const [ load, setLoad ] = useState(false);
