@@ -87,9 +87,9 @@ export default function About() {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      };
+    }, []);
 
   return (
     <section className="relative min-h-[100vh] w-full flex items-center flex-column" ref={nightRef}>

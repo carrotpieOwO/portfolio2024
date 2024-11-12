@@ -12,7 +12,7 @@ import Code from '@/public/images/icons/code.svg'
 import Detail from '@/public/images/icons/detail.svg'
 import { useRouter } from "next/navigation";
 import { useProject } from "@/app/store/useProject";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import _ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
 
@@ -20,7 +20,7 @@ export default function Projects() {
     const { projectColor, index, setIndex } = useProject()
     const router = useRouter();
     const projectRef = useRef<HTMLDivElement>(null);
-    const project = projectRef.current;
+    const scrollTriggerRef = useRef<ScrollTrigger>(null);
 
     const handleSlide = ({ activeIndex } : { activeIndex: number}) => {
         setIndex(activeIndex)
@@ -36,15 +36,33 @@ export default function Projects() {
         }
     }
     
-    _ScrollTrigger.create({
-        trigger: project,
-        start: 'top center', // 섹션의 상단이 화면 중앙에 도달할 때 시작
-        end: 'bottom center', // 섹션의 하단이 화면 중앙에 도달할 때 끝
-        onEnter: () => gsap.to('body', { background: projectColor, duration: 2 }),
-        onLeave: () => gsap.to('body', { background: 'linear-gradient(to bottom, #fec6de 5%,rgba(255, 255, 255, 1) 25%)', duration: 2 }),
-        onEnterBack: () => gsap.to('body', { background: projectColor, duration: 1 }),
-        onLeaveBack: () => gsap.to('body', { background: 'linear-gradient(to bottom, #fec6de 5%,rgba(255, 255, 255, 1) 25%)', duration: 1 }),
-    });
+    useEffect(() => {
+        const project = projectRef.current;
+
+        if(!scrollTriggerRef.current) {
+            scrollTriggerRef.current = _ScrollTrigger.create({
+                trigger: project,
+                start: 'top center',
+                end: 'bottom center',
+                onEnter: () => gsap.to('body', { background: projectColor, duration: 2 }),
+                onLeave: () => gsap.to('body', { background: 'rgb(211, 227, 253)', duration: 2 }),
+                onEnterBack: () => gsap.to('body', { background: projectColor, duration: 1 }),
+                onLeaveBack: () => gsap.to('body', { background: '#1e232b', duration: 1 }),
+            });
+        } else {
+            scrollTriggerRef.current.vars.onEnter = () => gsap.to('body', { background: projectColor, duration: 2 })
+            scrollTriggerRef.current.vars.onEnter = () => gsap.to('body', { background: projectColor, duration: 2 })
+        }
+        
+        return () => {
+            if(!!scrollTriggerRef.current) {
+                scrollTriggerRef.current.kill()
+                scrollTriggerRef.current = null;
+            }
+            
+        };
+
+    }, [projectColor])
     
     return (
         <section 
@@ -53,7 +71,7 @@ export default function Projects() {
             className={`relative w-full h-[100vh] transition-colors duration-500 ease-in-out flex-column items-center px-5 sm:px-0`}
             //style={{ backgroundColor: projectColor, transition: 'background-color 0.5s ease' }}
         >
-            <p className="absolute top-[-10%] sm:top-12 left-1 sm:left-10 text-9xl font-bold text-transparent" style={{ WebkitTextStroke: '1px #fff' }}>Projects.</p>
+            <p className="absolute top-0 sm:top-12 left-1 sm:left-10 text-9xl font-bold text-transparent" style={{ WebkitTextStroke: '1px #fff' }}>Projects.</p>
             <Swiper
                 slidesPerView={'auto'}
                 spaceBetween={30}

@@ -3,10 +3,11 @@ import About from "./about/page";
 import Mouse from "./components/Mouse";
 import Projects from "./project/page";
 import Room from "./components/Room";
+import Contact from "./contact/page";
 
 export default function Home() {
   return (
-      <main className="main flex flex-col row-start-2 items-center sm:items-start w-full overflow-x-hidden">
+      <main className="main flex flex-col row-start-2 items-center sm:items-start w-full overflow-hidden">
         <div className="welcome">
           <div className="relative top-[25%] ">
             <div className="heart">❤️</div>
@@ -20,6 +21,7 @@ export default function Home() {
         <Mouse />
         <About />
         <Projects />
+        <Contact />
         <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
           todo: footer        
         </footer>
