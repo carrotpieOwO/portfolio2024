@@ -11,11 +11,11 @@ const montserrat = localFont({
   weight: "400 500 800 900",
 })
 
-const notoSansKr = localFont({
-  src: "./fonts/NotoSansKr.ttf",
-  variable: "--font-noto-sans-kr",
-  weight: "100 400 500 700 900",
-})
+// const notoSansKr = localFont({
+//   src: "./fonts/NotoSansKr.ttf",
+//   variable: "--font-noto-sans-kr",
+//   weight: "100 400 500 700 900",
+// })
 
 export const metadata: Metadata = {
   title: "ha0 portfolio 2024",
@@ -52,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${notoSansKr.className} ${montserrat.className} antialiased overflow-x-hidden bg`}
+        className={`${montserrat.className} antialiased overflow-x-hidden bg`}
       >
         <Nav />
         {children}
