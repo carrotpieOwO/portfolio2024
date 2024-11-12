@@ -1,11 +1,20 @@
 'use client'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import _ScrollTrigger from 'gsap/ScrollTrigger';
+import Toast from '../components/Toast';
+
+export interface ToastStatus {
+    status: 'success' | 'error' | null;
+    message: string | null;
+}
+const defaultStatus: ToastStatus = { status: null, message: null };
 
 export default function Contact() {
     const contactRef = useRef<HTMLDivElement>(null);
     const form = useRef<HTMLFormElement>(null)
+
+    const [ showToast, setShowToast ] = useState(defaultStatus);
 
     const handleSubmit = (event: { preventDefault: () => void }) => {
         event.preventDefault()
@@ -16,10 +25,34 @@ export default function Contact() {
                 form.current as unknown as HTMLFormElement,
                 process.env.NEXT_PUBLIC_MAIL_PRIVATE_KEY || ''
             )
-            console.log('성공')
-            // todo: 메세지
+            .then(()=> {
+                setShowToast({ status: 'success', message: '성공적으로 전송되었어요!'})
+                form?.current?.reset()
+
+                setTimeout(() => {
+                    setShowToast(defaultStatus)
+    
+                }, 5000)
+
+
+            })
+            .catch((error) => {
+                console.log('실패', error)
+                setShowToast({ status: 'error', message: '오류가 발생하였습니다 ㅠㅠ'})
+    
+                setTimeout(() => {
+                    setShowToast(defaultStatus)
+    
+                }, 5000)
+            })
         } catch (error) {
             console.log('실패', error)
+            setShowToast({ status: 'error', message: '오류가 발생하였습니다 ㅠㅠ'})
+
+            setTimeout(() => {
+                setShowToast(defaultStatus)
+
+            }, 5000)
         }
     }
 
@@ -67,6 +100,10 @@ export default function Contact() {
                     <button type='submit' className="w-full h-12 bg-[#a9b2fd] hover:bg-[#fd9ec6] transition-all duration-700 rounded-[12px] shadow-xs text-white text-base font-semibold leading-6">Send Message</button>
                 </form>
             </div>
+            { 
+                showToast?.status && 
+                <Toast status={showToast.status} message={showToast.message} />
+            }
         </section>
     )
 }
