@@ -8,7 +8,7 @@ import Contact from "./contact/page";
 export default function Home() {
   return (
       <main className="main flex flex-col row-start-2 items-center sm:items-start w-full overflow-hidden">
-        <div className="welcome">
+        <div id="home" className="welcome">
           <div className="relative top-[25%] ">
             <div className="heart">❤️</div>
             <h1 className="mt-6 fade-in-blur text-4xl font-bold text-wrap">

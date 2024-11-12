@@ -66,7 +66,7 @@ export default function Projects() {
     
     return (
         <section 
-            id="project"
+            id="projects"
             ref={projectRef}
             className={`relative w-full h-[100vh] transition-colors duration-500 ease-in-out flex-column items-center px-5 sm:px-0`}
             //style={{ backgroundColor: projectColor, transition: 'background-color 0.5s ease' }}
