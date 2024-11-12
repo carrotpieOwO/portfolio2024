@@ -12,7 +12,7 @@ const works = [
                 url: '134492cc11258010b3bff7d83dfd8df3'
             },
         ],
-        color: 'rgb(0, 156, 78)'
+        color: 'rgb(97, 189, 139)'
     },
     {
         projectId: 'tododok',

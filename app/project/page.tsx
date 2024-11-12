@@ -50,9 +50,10 @@ export default function Projects() {
         <section 
             id="project"
             ref={projectRef}
-            className={`relative w-full h-[100vh] transition-colors duration-500 ease-in-out flex items-center px-5 sm:px-0`}
+            className={`relative w-full h-[100vh] transition-colors duration-500 ease-in-out flex-column items-center px-5 sm:px-0`}
             //style={{ backgroundColor: projectColor, transition: 'background-color 0.5s ease' }}
         >
+            <p className="absolute top-[-10%] sm:top-12 left-1 sm:left-10 text-9xl font-bold text-transparent" style={{ WebkitTextStroke: '1px #fff' }}>Projects.</p>
             <Swiper
                 slidesPerView={'auto'}
                 spaceBetween={30}

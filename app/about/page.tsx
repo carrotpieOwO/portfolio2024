@@ -27,20 +27,6 @@ export default function About() {
     const frontend = prontendRef.current;
     const developer = developerRef.current;
 
-    // gsap.fromTo(title,
-    //   { y: window?.innerHeight > 1200 ? 20 : window?.innerHeight > 930 ? 5 : -100 }, // todo: 화면 사이지 적용
-    //   {
-    //     y: window?.innerHeight > 1200 ? -100 : window?.innerHeight > 930 ? -150 : window?.innerHeight * 0.5,
-    //     scrollTrigger: {
-    //       trigger: title,
-    //       start: "top bottom", // 요소의 top이 viewport의 bottom에 도달했을 때 시작
-    //       end: "bottom top", // 요소의 bottom이 viewport의 top에 도달했을 때 끝
-    //       toggleActions: "play none none reverse", // 진입 시 재생, 퇴장 시 역재생
-    //       scrub: true, // 스크롤과 애니메이션을 연동하려면 이 옵션을 사용
-    //     }
-    //   }
-    // );
-
     // front-end 애니메이션
     gsap.fromTo(frontend, 
       { x: "100%" }, // 시작 위치: 오른쪽 화면 밖
