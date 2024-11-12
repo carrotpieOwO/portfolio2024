@@ -92,7 +92,7 @@ export default function About() {
     }, []);
 
   return (
-    <section className="relative min-h-[100vh] w-full flex items-center flex-column" ref={nightRef}>
+    <section id="about" className="relative min-h-[100vh] w-full flex items-center flex-column" ref={nightRef}>
       <div ref={titleRef} className="absolute top-1/2 w-full text-7xl font-bold text-transparent" style={{ WebkitTextStroke: '1px #fff' }}>
         <span ref={prontendRef} className="front-end block">FRONT-END</span>
         <span ref={developerRef} className="developer block">DEVELOPER</span>
