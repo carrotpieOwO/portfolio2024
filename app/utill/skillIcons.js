@@ -6,6 +6,7 @@ export const getImageUrl = (skill) => {
         typescript: '3178C6',
         jquery: '0769AD',
         nextjs: '000000',
+        threejs: '000000',
         angular: 'DD0031',
         react:'61DAFB',
         reactquery: 'FF4154',
@@ -23,7 +24,9 @@ export const getImageUrl = (skill) => {
         mui: '007FFF',
         devexpress: 'FF7200',
         html5: 'E34F26',
-        css3: '1572B6'
+        css3: '1572B6',
+        mongodb: '47A248',
+
     }
     
     const skillId = skill.toLowerCase().replace(' ', '').replace('.', '');
