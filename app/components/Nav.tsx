@@ -30,16 +30,16 @@ export default function Nav () {
     
 
     return (
-        <nav className=" border-gray-200 dark:bg-gray-900 fixed w-full z-20">
-            <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+        <nav className=" border-gray-200 fixed w-full z-20">
+            <div className="max-w-screen-md md:max-w-screen-xl flex items-center justify-between mx-auto p-4">
                 <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">HA0</span>
+                    <span className="self-center text-2xl font-semibold whitespace-nowrap ">HA0</span>
                 </a>
                 <div className={`sm:block sm:w-auto`} id="navbar-default">
                     <ul className="font-medium flex p-0 flex-row sm:space-x-8 ">
                         {
                             sections.map(section => <li key={section} >
-                                <a href={`#${section}`} className={`block py-2 px-3 ${ section === activeSection ? "text-pink-700" : "text-gray-600"} p-0`} aria-current="page">
+                                <a href={`#${section}`} className={`block py-2 px-3 ${ section === activeSection ? "text-pink-700" : "text-gray-600"} p-0 text-sm sm:text-base`} aria-current="page">
                                     {capitalizeFirstLetter(section)}
                                 </a>
                             </li>)

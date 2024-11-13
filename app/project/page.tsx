@@ -92,16 +92,16 @@ export default function Projects() {
                     works.map((item, i) => (
                         <SwiperSlide key={item.projectId}>
                             <img className="object-fill h-[55%] w-full rounded-[13px]" src={item.mainImg} alt={item.projectNm} />
-                            <div className="p-2 px-4">
+                            <div className="p-2">
                                 <h3 className="font-bold mt-3 text-lg">{item.projectNm} ({item.period})</h3>
-                                <div className="flex flex-wrap gap-[5px] py-4">
+                                <div className="flex flex-wrap gap-[5px] py-4 h-[77px]">
                                 {
                                     item.skills.map((skill: string)    => (
-                                        <img key={`${item.projectId}-${skill}`} src={getImageUrl(skill)} alt={skill} />
+                                        <img key={`${item.projectId}-${skill}`} src={getImageUrl(skill)} alt={skill} className="h-[20px]"/>
                                     ))
                                 }
                                 </div>
-                                <p className="h-[63px]">{item.description}</p>
+                                <p className="h-[63px] line-clamp-3 overflow-hidden whitespace-normal text-ellipsis">{item.description}</p>
                             </div>
                             <div className={`${item.link.length === 1 ? 'flex' : 'grid grid-cols-[2fr_7fr]'} gap-2 m-2`}>
                             {

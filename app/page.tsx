@@ -23,7 +23,7 @@ export default function Home() {
         <About />
         <Projects />
         <Contact />
-        <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
+        <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center max-w-[100vw] md:max-w-screen-xl">
           <p className="text-9xl font-bold text-transparent" style={{ WebkitTextStroke: '1px #fff' }}>Thank you</p>
           <div className="w-full flex justify-between items-center px-5 py-2 sm:px-0 sm:py-10">
             <a href="https://github.com/carrotpieOwO" hrefLang="github" target="_blank" className="text-xl sm:text-3xl">
