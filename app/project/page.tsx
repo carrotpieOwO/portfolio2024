@@ -109,7 +109,7 @@ export default function Projects() {
                                     <button
                                         key={`${item.projectId}-${link.type}`}
                                         className={`slider-btn ${i === index && 'target'}`}
-                                        style={{backgroundColor: i === index ? works[index].color : 'rgba(0, 0, 0, .2)',}}
+                                        style={{backgroundColor: i === index ? works[index].color : 'rgba(0, 0, 0, .2)', pointerEvents: i === index ? 'all' : 'none'}}
                                         onClick={() => handleClick(link)}
                                     >
                                         {link.type === 'Site' ? (

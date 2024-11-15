@@ -54,11 +54,11 @@ const works = [
         link: [
             {
                 type: 'Git',
-                url: 'https://github.com/carrotpieOwO/ha0peno2023'
+                url: 'https://github.com/carrotpieOwO/nextjs-blog'
             },
             {
                 type: 'Site',
-                url: 'https://ha0peno.netlify.app/'
+                url: 'https://nextjs-blog-carrotpieowo.vercel.app'
             }, 
         ],
         color: 'rgb(254, 204, 203)'

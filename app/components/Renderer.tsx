@@ -62,7 +62,7 @@ export default function Renderer ({ recordMap, rootPageId }: RendererProps) {
             rootDomain={"project/"}
             mapPageUrl={(pageId) => `${pageId}`}
             disableHeader
-            footer={<CustomFooter handleClick={() => router.push('/#project')} />}
+            footer={<CustomFooter handleClick={() => router.push('/#projects')} />}
             // header={<>header</>}
             // showCollectionViewDropdown
             // pageCover={<>cover</>}
