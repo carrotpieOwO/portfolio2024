@@ -2,7 +2,7 @@ export const aboutInfo = [
     {
         key: 'resume',
         message: '저에 대해 더 궁금하시다면?',
-        url: 'https://drive.google.com/file/d/1000000000000000000000000000000000000000/view?usp=sharing'
+        url: 'https://inky-cloud-bda.notion.site/8692ead489654e929a03f4b39c12af36'
     },
     {
         key: 'github',

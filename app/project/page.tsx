@@ -93,7 +93,7 @@ export default function Projects() {
                         <SwiperSlide key={item.projectId}>
                             <img className="object-fill h-[55%] w-full rounded-[13px]" src={item.mainImg} alt={item.projectNm} />
                             <div className="p-2">
-                                <h3 className="font-bold mt-3 text-lg">{item.projectNm} ({item.period})</h3>
+                                <h3 className="font-bold mt-3 text-base sm:text-lg">{item.projectNm} ({item.period})</h3>
                                 <div className="flex flex-wrap gap-[5px] py-4 h-[77px]">
                                 {
                                     item.skills.map((skill: string)    => (
