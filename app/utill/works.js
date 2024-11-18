@@ -31,7 +31,7 @@ const works = [
     },
     {
         projectId: 'healthcare',
-        projectNm: 'Motioncore Healthcare',
+        projectNm: 'Motioncore Fitness',
         mainImg: '/images/works/jeios/health.png',
         period: '2023-11 ~',
         skills: ['Javascript', 'React', 'React Query', 'Zustand', 'emotion', 'Ant Design', 'Chart.js'],
